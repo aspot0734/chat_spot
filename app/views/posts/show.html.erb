@@ -1,0 +1,36 @@
+<div class="big">
+  <div class="descryption">
+    <p>投稿詳細</p>
+  </div>
+  <div class="container">
+    <div class="wrapper">
+      <img src="<%= "/user_images/#{@user.image_name}" %>">
+      <div class="show-texts">
+        <%= @post.content %>
+      </div>
+    </div>
+      <div class="btn-container">
+
+        <div class="like-btns">
+            <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+              <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+                <span class="fa fa-heart like-btn-unlike"></span>
+              <% end %>
+            <% else %>
+              <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+                <span class="fa fa-heart like-btn"></span>
+              <% end %>
+            <% end %>
+
+            <p>いいね！</p>
+            <%= @count %>
+        </div>
+    <% if @current_user.id == @user.id %>
+        <div class="show-btns">
+          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="new-back">
+  <%= form_tag("/posts/#{@post.id}/update") do %>
+    <div class="new-container">
+      <div class="error_message">
+        <%= @error_message %>
+      </div>
+      <textarea name="content"><%= @post.content %></textarea>
+      <input type="submit" value="完了">
+    </div>
+  <% end %>
+</div>

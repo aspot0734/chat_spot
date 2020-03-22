@@ -1,0 +1,15 @@
+<div class="back">
+  <div class="descryption">
+    <p>ユーザー一覧</p>
+  </div>
+  <div class="contents">
+    <% @users.each do |user| %>
+      <div class="content">
+        <img src="<%= "/user_images/#{user.image_name}" %>">
+        <div class="texts">
+          <%= link_to(user.name, "/users/#{user.id}") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

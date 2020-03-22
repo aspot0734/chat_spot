@@ -1,0 +1,17 @@
+<div class="users-new-back">
+  <div class="users-new-container">
+    <div class="second-error_message">
+      <%= @error_message %>
+    </div>
+    <%= form_tag("/login") do %>
+      <div class="users-new-texts">
+        <p>メールアドレス</p>
+        <input class="form" name="email" value="<%= @email %>">
+        <p>パスワード</p>
+        <input class="form" name="password" type="password" value="<%= @password %>">
+        <p></p>
+        <input class="users-new-btn" type="submit" value="ログイン">
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="users-new-back">
+  <div class="users-new-container">
+    <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+      <div class="users-new-texts">
+        <p>ユーザー名</p>
+        <input class="form" name="name" value="<%= @user.name %>">
+        <p>アイコン</p>
+        <input class="form" name="image_name" type="file">
+        <p>メールアドレス</p>
+        <input class="form" name="email" value="<%= @user.email %>">
+        <p></p>
+        <input class="users-new-btn" type="submit" value="完了">
+      </div>
+    <% end %>
+  </div>
+</div>

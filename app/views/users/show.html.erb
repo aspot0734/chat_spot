@@ -1,0 +1,42 @@
+<div class="big">
+    <div class="descryption">
+      <p>ユーザー詳細</p>
+    </div>
+    <div class="container">
+      <div class="wrapper">
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <div class="show-texts">
+          <%= @user.name %>
+        </div>
+      </div>
+      <div class="btn-container">
+        <% if @current_user.id == @user.id %>
+          <div class="show-btns">
+            <%= link_to("編集", "/users/#{@user.id}/edit") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="contents">
+      <div class="change-btns">
+        <div class="user btn">
+          <%= link_to("投稿一覧", "/users/#{@user.id}") %>
+        </div>
+        <div class="like btn">
+          <%= link_to("いいね！", "/users/#{@user.id}/likes") %>
+        </div>
+        <p>投稿一覧</p>
+      </div>
+      <% @posts.each do |post| %>
+        <div class="content">
+          <img src="<%= "/user_images/#{@user.image_name}" %>">
+          <div class="texts">
+            <div class="bold">
+              <%= @user.name %>
+            </div>
+            <%= link_to(post.content, "/posts/#{post.id}") %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>

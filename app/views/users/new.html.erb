@@ -1,0 +1,19 @@
+<div class="users-new-back">
+  <div class="users-new-container">
+    <div class="third-error_message">
+      <%= @error_message %>
+    </div>
+    <%= form_tag("/users/create") do %>
+      <div class="users-new-texts">
+        <p>ユーザー名</p>
+        <input class="form" name="name" value="<%= @name %>">
+        <p>メールアドレス</p>
+        <input class="form" name="email" value="<%= @email %>">
+        <p>パスワード</p>
+        <input class="form" type="password" name="password" value="<%= @password %>">
+        <p></p>
+        <input class="users-new-btn" type="submit" value="登録">
+      </div>
+    <% end %>
+  </div>
+</div>
